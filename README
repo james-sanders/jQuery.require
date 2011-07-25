@@ -21,6 +21,14 @@
 	Scripts will only be evaluated once; if they have already been imported
 	then the callback will be executed immediately.
 
+	Any script can have any number of dependencies, specified by including
+	a number of comment lines within the script in the form:
+
+	    // @require "some-other-script.js"
+
+	The parameter to @require will be resolved relative to the script's
+	location.
+
 	N.B. only scripts imported via $.require will be taken into account
 	when determining whether to evaluate a script, if a script has already
 	been executed via a <script src>, it will be run twice.
