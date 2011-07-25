@@ -1,0 +1,36 @@
+/*------------------------------------------------------------------------------
+
+    jQuery.require - asynchronous runtime dependency handling
+
+    Copyright 2011 James Sanders
+
+    Feel free to use this however you like, just don't blame me if it breaks
+    your code, causes your site to fall over, kills your dog, etc.
+
+    Requires: jQuery 1.5 or above due to extensive use of $.Deferred
+
+    Usage:
+
+	$.require(urls, [callback])
+
+	Will ensure the scripts found at the specified URLs have been evaluated
+	before executing the optional callback. "urls" can be a string or an
+	array. The function also returns a promise to enable the use of failure
+	callbacks.
+
+	Scripts will only be evaluated once; if they have already been imported
+	then the callback will be executed immediately.
+
+	N.B. only scripts imported via $.require will be taken into account
+	when determining whether to evaluate a script, if a script has already
+	been executed via a <script src>, it will be run twice.
+
+	The following code snippets are identical in function:
+
+	    $.require(url, f)
+
+	and
+
+	    $.require(url).done(f)
+
+------------------------------------------------------------------------------*/
