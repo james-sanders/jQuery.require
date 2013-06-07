@@ -96,6 +96,7 @@ function _require(urls, callback, source) {
 			req.resolve();
 		    } catch (evalError) {
 			req.reject();
+			throw evalError;
 		    }
 		}
 		if (requirements.length > 0) {
